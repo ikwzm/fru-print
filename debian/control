@@ -1,0 +1,10 @@
+Source: fru-print
+Maintainer: ikwzm <ichiro_k@ca2.so-net.ne.jp>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: fru-print
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: print FRU data of SOM/CC EEPROM
+

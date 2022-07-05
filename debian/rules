@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+package = fru-print
+bindir  = debian/tmp/usr/bin
+docdir  = debian/tmp/usr/share/doc/$(package)
+
+clean:
+	rm -f build
+	rm -rf debian/tmp debian/*~ debian/files* debian/substvars
+
+build:
+	rm -rf debian/tmp
+	touch build
+
+binary-indep: build
+	install -d debian/tmp/DEBIAN $(docdir) $(bindir)
+	cp -a fru-print.py           $(bindir)
+	ln -s ./fru-print.py         $(bindir)/fru-print
+	cp -a debian/copyright       $(docdir)/
+	cp -a debian/changelog       $(docdir)/changelog.Debian
+	cp -a ChangeLog              $(docdir)/changelog
+	dpkg-gencontrol
+	chown -R root:root debian/tmp
+	chmod -$ u+w,go=rX debian/tmp
+	dpkg-deb --build debian/tmp ..
+
+binary-arch: build
+
+binary: binary-indep binary-arch
+
