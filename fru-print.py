@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
-__version__ = '1.0.0'
-__license__ = 'BSD-2-Clause'
+__copyright__    = 'Copyright (C) 2022 ikwzm'
+__version__      = '1.0.0'
+__license__      = 'BSD-2-Clause'
+__author__       = 'ikwzm'
+__author_email__ = 'ichiro_k@ca2.so-net.ne.jp'
+__url__          = 'https://github.com/ikwzm/fru-print'
 
 from glob import glob
 import itertools
